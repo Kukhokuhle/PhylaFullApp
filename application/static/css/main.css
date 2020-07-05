@@ -1,0 +1,231 @@
+* {
+    box-sizing: border-box;
+}
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    height: 100%;
+    position: relative;
+    margin:0px;
+}
+
+header {
+    text-align: center;
+}
+
+li {
+    display: inline;
+    padding: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: blue;
+}
+
+a:hover { color : red;}
+
+hr {
+    width: 100%;
+    height:4px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: darkblue;
+    border: 0 none;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 7px;
+    /* margin: 5px 0 22px 0; */
+    display: inline-block;
+    border: 1px solid #000;
+    border-radius: 3px;
+    background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.top-container {
+    background: #ccc;
+    padding:5px;
+    border-bottom:2px solid #0f0f0f;
+}
+
+.bottom-container {
+    background: #333;
+    padding:5px;
+    border-top:2px solid #0f0f0f;
+    position:fixed;
+    bottom:0;
+}
+
+.container-term {
+    width:80%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+footer {
+    text-align: center;
+    height: 50px;
+    color: white;
+    padding: 5px;
+    margin-top: 10px;
+    bottom: 0px;
+    /* position: static; */
+}
+
+.btn-submit {
+    background-color: cornflowerblue;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.btn-submit:hover {
+    opacity: 1;
+}
+
+.nav{
+    display: flex;
+    justify-content: center;
+}
+
+.inside-form-container{
+    width: 50%;
+    text-align: left;
+    /* border: 1px solid red; */
+}
+
+.form-container{
+    display: flex;
+    justify-content: center;
+    /* border: 1px solid blue; */
+}
+
+.error-message{
+    color: red;
+}
+
+.add-patient-btn{
+    /* padding: 10px 20px;  */
+    border-radius: 5px;
+    background-color:#EBECF0;
+    border: 1px solid black;
+}
+
+.sort-button{
+    border-radius: 3px;
+    background-color:#EBECF0;
+    border: 1px solid black;
+    margin-left: 20px;
+}
+
+.add-patient-btn a{
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.patients-top-bar{
+    width: 900px;
+    margin: auto;
+}
+
+.top-bar-1{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    border: 1px solid #EBECF0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.top-bar-2{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 10px;
+    padding-left: 40px;
+    border: 1px solid #EBECF0;
+    border-radius: 5px;
+}
+
+.top-bar-2-form{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.field-set .radio-label,
+.field-set input[type='radio'] {
+    display: block;
+    font-size: 14px;
+    padding: 0px 20px 0 10px;
+  }
+
+.field-set legend {
+    width: 120px;
+    font-size: 14px;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.field-set legend,
+.field-set .radio-label,
+.field-set input[type='radio'] {
+  float: left;
+}
+
+.search-form{
+    display: flex;
+    flex-direction: row;
+}
+
+.search-form input{
+    border: 1px solid black;
+    border-right: none;
+    background-color: white;
+
+    border-radius: 6px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+}
+
+.magnifying-glass{
+    padding-left: 14px;
+    padding-right: 14px;
+
+    border-radius: 6px;
+    border-bottom-left-radius: 0px;
+    border-top-left-radius: 0px;
+
+    border: 1px solid black;
+    border-left: none;
+}
+
+.magnifying-glass:hover,
+.sort-button:hover,
+.view-button:hover{
+    cursor: pointer;
+}
+
+
+
