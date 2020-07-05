@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>Let's get started</h1>
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                
+                <form class="form-container" name="register" action="" method="post" novalidate>
+
+                    <div class="inside-form-container">
+
+                        <legend> {{ title }} </legend>
+
+                        {{ form.hidden_tag() }} <!-- generates a CSRF token to protect form data -->
+            
+                        <p>
+                            {{ form.first_name.label }} </br>
+                            {{ form.first_name       }}
+
+                            {% for error in form.first_name.errors %}
+                                <span class="error-message"> {{ error }} </span>
+                            {% endfor %}
+                        </p>
+            
+                        <p>
+                            {{ form.last_name.label }} </br>
+                            {{ form.last_name       }}
+
+                            {% for error in form.last_name.errors %}
+                                <span class="error-message"> {{ error }} </span>
+                            {% endfor %}
+                        </p>
+            
+                        <p>
+                            {{ form.email.label }} </br>
+                            {{ form.email(size=35)       }}
+
+                            {% for error in form.email.errors %}
+                                <span class="error-message"> {{ error }} </span>
+                            {% endfor %}
+                        </p>
+            
+                        <p>
+                            {{ form.password.label }} </br>
+                            {{ form.password(size=15) }}
+
+                            {% for error in form.password.errors %}
+                                <span class="error-message"> {{ error }} </span>
+                            {% endfor %}
+                        </p>
+            
+                        <p>
+                            {{ form.confirming_password.label }} </br>
+                            {{ form.confirming_password(size=15) }}
+
+                            {% for error in form.confirming_password.errors %}
+                                <span class="error-message"> {{ error }} </span>
+                            {% endfor %}
+                        </p>
+            
+                        <p>
+                            {{ form.register() }}
+                        </p>
+
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+        <p> Already use Phila? <a href="{{ url_for('index') }}">Login</a></p>
+
+    </div>
+</div>
+{% endblock %}

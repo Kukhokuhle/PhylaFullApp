@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="patients-top-bar">
+
+    <div class="top-bar-1"> <!--Add Patient button and Search Box-->
+        <h1> Patients </h1>
+        <button class="add-patient-btn"> <a href="{{ url_for('add_patient') }}"> Add Patient </a>  </button> 
+
+        <form class="search-form" action="{{ url_for('search_patient') }}" method="GET">
+            <input class="search-box" type="text" name="patientName" placeholder="Search"/>
+            <button class="magnifying-glass" type="submit"> <i class="fa fa-search">  </i> </button>
+        </form>
+    </div>
+
+    <div class="top-bar-2"> <!-- Sort By and Order (ascending/descending) radio buttons -->
+        <form class="top-bar-2-form" action="{{ url_for('patients') }}" method="GET">
+
+            <fieldset class="field-set">
+                <legend> Sort by: </legend>
+                <input id="sort-by-1" name="sort_by" value="name" type="radio" checked/>
+                <label for="sort-by-1" class="radio-label"> Name </label>
+
+                <input id="sort-by-2" name="sort_by" value="registrationDate" type="radio"/>
+                <label for="sort-by-2" class="radio-label"> Registration date </label>
+            </fieldset>
+
+            <fieldset class="field-set">
+                <legend> Order: </legend>
+                <input id="order-1" name="order" value="ascending" type="radio" checked/>
+                <label for="order-1" class="radio-label"> Ascending </label>
+
+                <input id="order-2" name="order" value="descending" type="radio"/>
+                <label for="order-2" class="radio-label"> Descending </label>
+            </fieldset>
+
+            <div>
+                <button class="sort-button">Sort</button>
+            </div>
+
+        </form>
+    </div>
+    
+</div>
+
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col"> Name </th>
+                <th scope="col"> Surname </th>                
+                <th scope="col"> Phone Number </th>
+                <th scope="col"> Address </th>
+                <th scope="col"> Status </th>
+                <th scope="col"> View </th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            {% if ( atLeastOnePatientFound ) %} <!--patient found-->
+                {% for patientInformation in patientsFound %}
+                <tr>
+                    <td scope='row'>{{ patientInformation["name"]      }}</td>
+                    <td>{{      patientInformation["surname"]          }}</td>
+                    <td>{{      patientInformation["phone_number"]     }}</td>
+                    <td>{{      patientInformation["address"]          }}</td>
+                    <td>   TBA                                           </td>
+                    <td>
+                        <form>
+                            <button class="view-button"> View </button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            {% endif %}
+
+            {% for patientInformation in patientData %}
+            <tr>
+                <td scope='row'>{{ patientInformation["name"]      }}</td>
+                <td>{{      patientInformation["surname"]          }}</td>
+                <td>{{      patientInformation["phone_number"]     }}</td>
+                <td>{{      patientInformation["address"]           }}</td>
+                <td>   TBA                                               </td>
+                <td>
+                    <form>
+                        <button> View </button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+             
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

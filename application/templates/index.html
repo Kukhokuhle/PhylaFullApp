@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>Welcome to Phyla</h1>
+
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                
+                <form class="form-container" name="login" action="" method="post" novalidate>
+
+                    <div class="inside-form-container">
+
+                        <legend> {{ title }} </legend>
+                        
+                        {{ form.hidden_tag() }}
+            
+                        <p>
+                            {{ form.email.label }} </br>
+                            {{ form.email(size=35)       }}
+
+                            {% for error in form.email.errors %}
+                                <span class="error-message"> {{ error }} </span>
+                            {% endfor %}
+                        </p>
+            
+                        <p>
+                            {{ form.password.label }} </br>
+                            {{ form.password(size=15)       }}
+
+                            {% for error in form.password.errors %}
+                                <span class="error-message"> {{ error }} </span>
+                            {% endfor %}
+                        </p>
+            
+                        <p>
+                            {{ form.remember_me.label  }} </br>
+                            {{ form.remember_me        }}
+                        </p>
+            
+                        <p>
+                            {{ form.submit() }}
+                        </p>
+
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+
+        <p>New to Phila? <a href="{{ url_for('register') }}">Create an account</a></p>
+
+    </div>
+</div>
+{% endblock %}}

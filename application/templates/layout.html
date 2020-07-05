@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title> {{ title }} </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+            integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    </head>
+
+    <body>
+
+        <div class="container-fluid text-center top-container">
+            <img src="{{ url_for('static', filename='images/uta-logo-200.png') }}">
+        </div>
+
+        <div class="main-content">
+
+            {% if logged_in %}
+                
+                {% include "includes/nav.html" %}
+
+            {% else %}
+
+            <!-- user not logged in, do not show nav bar -->
+                
+            {% endif %} 
+
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+
+                        <div class="alert alert-{{ category }}">
+                            <p>  {{ message }} </p>
+                        </div>
+            
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+        <!--we want to reuse the same footer code for other
+        webpages. So we rather have it stand on its own & just
+        include it in each webpage-->
+        
+        {% include "includes/footer.html" %}
+        
+        
+    </body>
+</html>
