@@ -1,0 +1,12 @@
+<header>
+    <nav>
+        <div class="navi-container">
+            <ul class="nav nav-pills">
+                <li class="nav-item"> <a href="{{ url_for('home') }}" class="nav-link {% if home %} active {% endif %}"> Home </a> </li>
+                <li class="nav-item"> <a href="{{ url_for('patients') }}" class="nav-link {% if patients %} active {% endif %}"> Patients </a> </li>
+                <li class="nav-item"> <a href="{{ url_for('orders') }}" class="nav-link {% if orders %} active {% endif %}"> Orders </a> </li>
+            </ul>
+        </div>    
+    </nav>
+    <hr style="clear:both">
+</header>
