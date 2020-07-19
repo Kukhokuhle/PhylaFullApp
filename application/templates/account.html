@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container">    
+    <div class="account-top-bar">
+        <div class="col-md-12 text-center">
+            <h1> {{ title }} </h1>
+        </div>
+
+        <div class="profile-top-bar">
+
+            <div  class="profile-pic-container">
+                <div> 
+                    <img src="../static/images/solid_black.svg"  class="profile-pic"> </img>
+                </div>
+            </div>
+            
+            <div class="profile-row-container">
+                <div> <b> Name:    </b>    {{ usersName     }}    </div>
+                <div> <b> Surname: </b>    {{ usersSurname  }}    </div>
+                <div> <b> Clinic:  </b>    {{ usersClinic   }}    </div>
+                <div> <b> Email:   </b>    {{ usersEmail    }}    </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
